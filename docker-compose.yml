@@ -34,7 +34,8 @@ services:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-nopassword}
       - MYSQL_DATABASE=sylius
       - MYSQL_USER=sylius
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-nopassword}
+      - MYSQL_PASSWORD=sylius
+#      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-nopassword}
     volumes:
       - mysql-data:/var/lib/mysql:rw
       # you may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
@@ -47,7 +48,7 @@ services:
       context: .
       target: sylius_nodejs
       cache_from:
-        - quay.io/sylius/php:latest
+        - quay.io/sylius/php:latest`
         - quay.io/sylius/nodejs:latest
         - quay.io/sylius/nginx:latest
     image: quay.io/sylius/nodejs:latest
@@ -92,6 +93,16 @@ services:
     #   - ./docker/mailhog/maildir:/maildir:rw,delegated
     ports:
       - "8025:8025"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: sylius_phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - 8080:80
+    depends_on:
+      - php
 
 volumes:
   mysql-data:
