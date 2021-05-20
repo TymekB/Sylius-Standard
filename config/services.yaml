@@ -2,13 +2,12 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en_US
-#    sylius.form.type.product.validation_groups: [ app_product ]
 
 services:
     # Default configuration for services in *this* file
     _defaults:
         # Automatically injects dependencies in your services
-        autowire: true
+        autowire: false
 
         # Automatically registers your services as commands, event subscribers, etc.
         autoconfigure: true

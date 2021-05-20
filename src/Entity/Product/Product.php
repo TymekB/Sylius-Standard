@@ -12,9 +12,13 @@ use Sylius\Component\Product\Model\ProductTranslationInterface;
  * @ORM\Entity
  * @ORM\Table(name="sylius_product")
  */
-final class Product extends BaseProduct
+class Product extends BaseProduct
 {
-    /** @ORM\Column(type="string", nullable=true) */
+
+    /**
+     * @var string
+     * @ORM\Column(type="string", nullable=true)
+     */
     private $color;
 
     public function getColor(): ?string
