@@ -6,11 +6,7 @@
     <class name="App\Entity\Product\Product">
         <property name="color">
             <constraint name="Choice">
-                <option name="choices">
-                    <value>Yellow</value>
-                    <value>Green</value>
-                    <value>Blue</value>
-                </option>
+                <option name="callback">getAvailableColors</option>
                 <option name="groups">sylius</option>
             </constraint>
         </property>

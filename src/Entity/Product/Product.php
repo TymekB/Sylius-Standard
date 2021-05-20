@@ -12,7 +12,7 @@ use Sylius\Component\Product\Model\ProductTranslationInterface;
  * @ORM\Entity
  * @ORM\Table(name="sylius_product")
  */
-class Product extends BaseProduct
+final class Product extends BaseProduct
 {
     /** @ORM\Column(type="string", nullable=true) */
     private $color;
@@ -22,12 +22,18 @@ class Product extends BaseProduct
         return $this->color;
     }
 
-    /**
-     * @param string|null $color
-     */
     public function setColor(?string $color): void
     {
         $this->color = $color;
+    }
+
+    public static function getAvailableColors(): iterable
+    {
+        return [
+            'Yellow',
+            'Green',
+            'Blue'
+        ];
     }
 
     protected function createTranslation(): ProductTranslationInterface
