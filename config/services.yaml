@@ -2,6 +2,7 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en_US
+#    sylius.form.type.product.validation_groups: [ app_product ]
 
 services:
     # Default configuration for services in *this* file
@@ -38,3 +39,5 @@ services:
         class: App\Form\Extension\ProductTypeExtension
         tags:
             - { name: form.type_extension, extended_type: Sylius\Bundle\CustomerBundle\Form\Type\ProductType }
+
+

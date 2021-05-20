@@ -23,9 +23,9 @@ class Product extends BaseProduct
     }
 
     /**
-     * @param string $color
+     * @param string|null $color
      */
-    public function setColor(string $color): void
+    public function setColor(?string $color): void
     {
         $this->color = $color;
     }

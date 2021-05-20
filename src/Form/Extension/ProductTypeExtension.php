@@ -7,7 +7,6 @@ namespace App\Form\Extension;
 use Sylius\Bundle\ProductBundle\Form\Type\ProductType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 final class ProductTypeExtension extends AbstractTypeExtension
@@ -16,9 +15,9 @@ final class ProductTypeExtension extends AbstractTypeExtension
     {
         $builder->add('color', ChoiceType::class, [
             'choices'  => [
-                'Green' => 'green',
-                'Yellow' => 'yellow',
-                'Blue' => 'blue',
+                'Green' => 'Green',
+                'Yellow' => 'Yellow',
+                'Blue' => 'Blue',
             ],
         ]);
     }
